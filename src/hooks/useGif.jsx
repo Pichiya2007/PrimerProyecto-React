@@ -3,17 +3,17 @@ import { reqGif } from "../service/gif"
 
 export const useGif = () => {
 
-  const [url, seturl] = useState("")
+  const [arregloGifs, setArregloGifs] = useState([])
   
-  const handleGetGif = () => {
-      reqGif().then((url)=>{
-        seturl(url)
+  const handleGetGif = async () => {
+      reqGif().then((arregloGifs) => {
+        setArregloGifs(arregloGifs)
       })
   }
 
   //retorno del hook
   return {
     handleGetGif,
-    url
+    arregloGifs
   }
 }

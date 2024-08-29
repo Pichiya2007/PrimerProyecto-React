@@ -3,12 +3,19 @@ import { useGif } from "../hooks/useGif"
 //funtional component
 export const GifApp = () => {
 
-  const{handleGetGif, url} = useGif()
+  const{handleGetGif, arregloGifs} = useGif()
 
   return (
     <>
-    <button onClick={ handleGetGif }>Gif Aleatorio</button>
-    <img src={url} alt=""/>
+    
+    <div>
+      <button onClick={ handleGetGif }>Gif Aleatorio</button>
+      {arregloGifs.map(({id, url}) => {
+        return(
+          <img key={id} src={url}/>
+        )
+      })}
+    </div>
     </>
   )
 }
