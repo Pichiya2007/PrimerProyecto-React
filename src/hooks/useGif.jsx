@@ -5,10 +5,13 @@ export const useGif = () => {
 
   const [arregloGifs, setArregloGifs] = useState([])
   
-  const handleGetGif = async () => {
-      reqGif().then((arregloGifs) => {
-        setArregloGifs(arregloGifs)
-      })
+  const handleGetGif = async (categoria, e) => {
+
+    e.preventDefault()
+
+    reqGif(categoria).then((arregloGifs) => {
+      setArregloGifs(arregloGifs)
+    })
   }
 
   //retorno del hook
